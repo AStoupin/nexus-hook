@@ -26,20 +26,19 @@ class NexusHookApplicationTests {
 
 	@Test
 	void checkMach() throws IOException {
-		InputStream inputStream = NexusHookApplicationTests.class.getResource("/test1.json").openStream();
-		Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-		String test1 = s.hasNext() ? s.next() : "";
-		
-		nexusHookController.webhook(test1);
+		nexusHookController.webhook(getJson("/test1.json"));
 	}
 
 	@Test
 	void checkNoMach() throws IOException {
-		InputStream inputStream = NexusHookApplicationTests.class.getResource("/test2.json").openStream();
+		nexusHookController.webhook(getJson("/test2.json"));
+	}
+	
+	private String getJson(String resourceFileName) throws IOException {
+		InputStream inputStream = NexusHookApplicationTests.class.getResource(resourceFileName).openStream();
 		Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-		String test1 = s.hasNext() ? s.next() : "";
-		
-		nexusHookController.webhook(test1);
+		String test = s.hasNext() ? s.next() : "";
+		return test;
 	}
 		
 }
