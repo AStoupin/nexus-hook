@@ -37,7 +37,7 @@ public class NexusHookController {
 			return nexusHookService.hook(component);
 		} catch (IOException e) {
 			LOG.error(e);
-			return "ko";
+			return "ko - "  + e.getMessage();
 		}  
 
 		
