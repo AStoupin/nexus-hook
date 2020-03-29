@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexus-hook-ext
+  labels:
+    app: nexus-hook
+spec:
+  type: LoadBalancer  
+  selector:
+    app: nexus-hook
+  ports:
+    - port: 8080
+      name: p1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexus-hook
+  labels:
+    app: nexus-hook
+spec:
+  type: ClusterIP
+  selector:
+    app: nexus
+  ports:
+    - port: 8080 
+      protocol: TCP
+      targetPort: 8080
+      name: p1
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: nexus-hook
+spec:
+  selector:
+    matchLabels:
+      app: nexus-hook  
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nexus-hook
+    spec:
+      containers:
+      - name: nexus-hook
+        image: astoupin/nexus-hook
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config
+          mountPath: /application.properties
+          subPath: application.properties
+      imagePullSecrets:
+        - name: regcred     
+      volumes:
+      - name: config
+        configMap: 
+            name: nexus-hook-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: nexus-hook-config
+data:
+  application.properties: |
+      jenkins.url=http://jenkins.stoupin.ru
+      jenkins.login=admin
+      jenkins.password=3472ans1
+      
+      nexus.hooks[0]=g1/a1:jenknsJob1
+      nexus.hooks[1]=g1/a2:jenknsJob1
+      nexus.hooks[2]=a2/a1:jenknsJob2
+

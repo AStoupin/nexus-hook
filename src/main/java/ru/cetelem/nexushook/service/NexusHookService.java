@@ -19,11 +19,14 @@ public class NexusHookService {
 	
 	private NexusHookConfig nexusHookConfig;
 	private JenkinsService jenkinsService;
+	private ModuleInfoService moduleInfoService;
 	
-	
-	public NexusHookService(@Autowired NexusHookConfig nexusHookConfig, JenkinsService jenkinsService){
+	@Autowired 
+	public NexusHookService(NexusHookConfig nexusHookConfig, 
+			JenkinsService jenkinsService){
 		this.nexusHookConfig = nexusHookConfig;
 		this.jenkinsService = jenkinsService;
+
 	}
 	
 	public String hook(NexusComponent component) {

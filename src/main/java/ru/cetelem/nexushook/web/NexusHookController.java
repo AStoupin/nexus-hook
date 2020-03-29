@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ru.cetelem.nexushook.domain.NexusAction;
+import ru.cetelem.nexushook.service.ModuleInfoService;
 import ru.cetelem.nexushook.service.NexusHookService;
 
 
@@ -22,7 +23,8 @@ public class NexusHookController {
 	
 	private  NexusHookService nexusHookService;
 	
-	NexusHookController(@Autowired NexusHookService nexusHookService){
+	@Autowired
+	NexusHookController(NexusHookService nexusHookService){
 		this.nexusHookService = nexusHookService;
 	}
 	
@@ -38,6 +40,14 @@ public class NexusHookController {
 			return "ko";
 		}  
 
+		
+	}
+	
+	
+	@RequestMapping("/version")
+	public @ResponseBody String getVersion() {
+		LOG.info("version hit");
+		return ModuleInfoService.getVersion();
 		
 	}
 

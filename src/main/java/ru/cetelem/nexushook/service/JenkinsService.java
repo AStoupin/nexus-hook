@@ -28,9 +28,10 @@ public class JenkinsService {
 	
 	private final String ORIGIN_MESSAGE ="Cause%20nexus%20hook%20trigger";
 	
-	public JenkinsService(@Autowired @Value("${jenkins.url}") String jenkinsUrl,
-			@Autowired @Value("${jenkins.login}") String jenkinsLogin,
-			@Autowired @Value("${jenkins.password}") String jenkinsPassword) {
+	@Autowired
+	public JenkinsService(@Value("${jenkins.url}") String jenkinsUrl,
+			@Value("${jenkins.login}") String jenkinsLogin,
+			@Value("${jenkins.password}") String jenkinsPassword) {
 
 		this.jenkinsUrl = jenkinsUrl;
 		this.jenkinsLogin = jenkinsLogin;

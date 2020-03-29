@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>ru.cetelem</groupId>
 	<artifactId>nexus-hook</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>nexus-hook</name>
 	<description>Nexus web hook</description>
 
