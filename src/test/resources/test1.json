@@ -1,0 +1,15 @@
+{
+	"timestamp":"2020-03-29T11:07:41.395+0000",
+	"nodeId":"4E60F845-B58B9658-AA1B0203-AA17C825-6813A022",
+	"initiator":"admin/127.0.0.1",
+	"repositoryName":"maven-releases",
+	"action":"CREATED",
+	"component":{
+		"id":"76d7d7e4186a390fb938f006706af6e5",
+		"componentId":"bWF2ZW4tcmVsZWFzZXM6NzZkN2Q3ZTQxODZhMzkwZmI5MzhmMDA2NzA2YWY2ZTU",
+		"format":"maven2",
+		"name":"a1",
+		"group":"g1",
+		"version":"3"
+		}
+}
