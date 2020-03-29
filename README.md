@@ -1,5 +1,7 @@
 # Nexus-hook (webhook) for Jenkins
 
+Hooks a new artifacts in Nexus and executes a specified Jenkins job  
+
 based on articles<br/>
   * https://help.sonatype.com/repomanager3/webhooks 
   * https://arghya.xyz/articles/triggering-jenkins-job-remotely
