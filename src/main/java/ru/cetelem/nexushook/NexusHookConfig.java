@@ -47,6 +47,8 @@ public class NexusHookConfig {
 	}
 
 	public String jobByHookComponent(String  groupId, String nameId){
+		LOG.info(String.format("jobByHookComponent check a hook for %s/%s", groupId, nameId));
+		
 		Optional<HookInfo> hook =  hooks.stream()
 				.filter(h->h.getComponentName().equalsIgnoreCase(groupId+ "/" + nameId)).findFirst();
 

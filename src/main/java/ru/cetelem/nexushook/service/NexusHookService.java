@@ -30,12 +30,18 @@ public class NexusHookService {
 	}
 	
 	public String hook(NexusComponent component) {
-		LOG.info(String.format("hook started for %s/%s", component.getGroup(), component.getName()));
+		LOG.info("hook started");
+
+		if(component==null) {
+			LOG.info("no components to match");
+			return "ok";
+		}
+		
 		
 		String jobName = nexusHookConfig.jobByHookComponent(component.getGroup(), component.getName());
 		
 		if("".equals(jobName)) {
-			LOG.info(String.format("no mach for %s/%s", component.getGroup(), component.getName()));
+			LOG.info(String.format("no match for %s/%s", component.getGroup(), component.getName()));
 			return "ok";
 		}
 					

@@ -49,7 +49,8 @@ public class JenkinsService {
         HttpClient httpclient = new DefaultHttpClient();
         httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
 		
-		HttpPost httppost = new HttpPost(String.format("%s/job/%s/buildWithParameters?groupId=%s&artifactId=%s&version=%s&cause=%s", 
+		HttpPost httppost = new HttpPost(
+				String.format("%s/job/%s/buildWithParameters?groupId=%s&artifactId=%s&version=%s&cause=%s", 
 				jenkinsUrl, jobName, component.getGroup(), component.getName(), component.getVersion(),
 				ORIGIN_MESSAGE));
 		authenticate(httppost, jenkinsLogin, jenkinsPassword);

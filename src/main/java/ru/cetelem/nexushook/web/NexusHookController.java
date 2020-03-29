@@ -34,6 +34,7 @@ public class NexusHookController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			NexusAction.NexusComponent component = objectMapper.readValue(json, NexusAction.class).getComponent();
+			
 			return nexusHookService.hook(component);
 		} catch (IOException e) {
 			LOG.error(e);
