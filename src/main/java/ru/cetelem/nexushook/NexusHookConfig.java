@@ -10,6 +10,8 @@ import javax.annotation.PostConstruct;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import ru.cetelem.nexushook.domain.HookInfo;
@@ -17,6 +19,7 @@ import ru.cetelem.nexushook.domain.HookInfo;
 
 @Configuration
 @ConfigurationProperties("nexus")
+@EnableConfigurationProperties
 public class NexusHookConfig {
 	private static final Log LOG = LogFactory.getLog(NexusHookConfig.class); 
 
@@ -26,7 +29,7 @@ public class NexusHookConfig {
 	private void postConstruct() {
 		LOG.info("Hook params:");
 		if(hooks == null) {
-			LOG.warn("Not hook params. Create empty list");
+			LOG.warn("No hook params. Create empty list");
 			hooks = new ArrayList();
 			return ;
 		}

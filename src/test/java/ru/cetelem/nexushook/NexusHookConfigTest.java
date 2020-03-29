@@ -10,21 +10,13 @@ import ru.cetelem.nexushook.service.JenkinsService;
 import ru.cetelem.nexushook.service.NexusHookService;
 
 @Configuration
-//@ComponentScan({"ru.cetelem.nexushook.web"})
 public class NexusHookConfigTest {
-	/*
+
 	@Bean
 	public JenkinsService jenkinsService() {
 		return  mock(JenkinsService.class);
 		
 	}
 	
-	
-	@Bean
-	public NexusHookService nexusHookService(@Autowired NexusHookConfig nexusHookConfig) {
-		return new NexusHookService(nexusHookConfig,  jenkinsService());
-		
-	}
-*/	
-	
+
 }
