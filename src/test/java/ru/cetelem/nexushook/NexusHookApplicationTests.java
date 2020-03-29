@@ -15,7 +15,8 @@ import ru.cetelem.nexushook.service.NexusHookService;
 import ru.cetelem.nexushook.web.NexusHookController;
 
 @SpringBootTest
-@ContextConfiguration(classes= {NexusHookConfig.class, NexusHookConfigTest.class, NexusHookController.class, NexusHookService.class})
+@ContextConfiguration(classes= {NexusHookConfig.class, NexusHookConfigTest.class, 
+		NexusHookController.class, NexusHookService.class})
 class NexusHookApplicationTests {
 	@Autowired
 	NexusHookController nexusHookController;
