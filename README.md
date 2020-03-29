@@ -7,7 +7,7 @@ based on articles<br/>
   * https://arghya.xyz/articles/triggering-jenkins-job-remotely
 
 
-use application.properties to modify a specificjenknsJob2 Jenkins instance <br/>
+use application.properties to modify a specific Jenkins instance <br/>
 - jenkins.url=http://jenkins.host
 - jenkins.login=somelogin <br/>
 - jenkins.password=somepassword <br/>
